@@ -36,9 +36,6 @@ class Ring {
   }
 
   draw(x, y) {
-    console.log(rings);
-    // get a color based of the mouse x coordinate
-
     // creating a new ring
     this.div = document.createElement("div");
 
@@ -66,19 +63,20 @@ class Ring {
     this.playNote();
 
     // making the ring expand
-    const maxRingSize = 70; // in vw
+    const maxRingSize = 70; // in px
     $(this.div).animate({
         width: maxRingSize + "px",
         height: maxRingSize + "px",
         borderRadius: maxRingSize + "px",
         borderWidth: 15 + "px",
-        left: x - maxRingSize / 2 + "px",
-        top: y - maxRingSize / 2 + "px"
+        left: ((x - maxRingSize / 2) / $(window).width() * 100) + "%",
+        top: ((y - maxRingSize / 2) / $(window).height() * 100) + "%"
     }, 500);
   }
 
   playNote() {
-    this.note = notes[Math.floor(this.y / $("#main").height() * notes.length)];
+    let colorIndex = this.colors.indexOf(this.color);
+    this.note = notes[colorIndex];
     synth.triggerAttackRelease(this.note, "16n");
   }
 
@@ -151,7 +149,7 @@ function getScale() {
   else if (scaleInput === "Major blues") {
     scale = ['C', 'D', 'F', 'G', 'A'];
   }  
-  else if (scaleInput === "Egyptian") {
+  else if (scaleInput === "Suspended") {
     scale = ['C', 'D', 'F', 'G', 'Bb'];
   };
 
