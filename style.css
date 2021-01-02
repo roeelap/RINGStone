@@ -1,0 +1,129 @@
+* {
+  font-family: "Lucida Sans";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3 {
+  margin: 5px;
+  margin-top: 10px;
+  color: white;
+}
+
+.ring {
+  position: absolute;
+  background: black;
+  z-index: 1;
+}
+
+.managerTitle {
+  font-size: 1.5vw;
+}
+
+#main {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  background: black;
+  border: 2px solid white;
+  border-right: none;
+}
+
+#manager {
+  width: fit-content;
+  height: 100vh;
+  border: 2px solid white;
+  background: black;
+  text-indent: 10px;
+  display: inline-grid;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+#title {
+  font-size: 4vw;
+  margin-right: 10px;
+}
+
+#playButton,
+#stopButton,
+#removeAll {
+  font-size: 5vw;
+  background: black;
+  border: none;
+  outline-width: 0;
+  color: white;
+  margin: 10px;
+}
+
+#playButton:hover {
+  color: green;
+}
+
+#stopButton {
+  display: none;
+}
+
+#stopButton:hover {
+  color: red;
+}
+
+#removeAll {
+  font-size: 2.5vw;
+}
+
+#removeAll:hover {
+  color: yellow;
+}
+
+#scaleInput {
+  font-size: 2vw;
+  padding: 3px;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 15px;
+  outline-width: 0px;
+  margin: 10px;
+}
+
+#scaleNotes {
+  font-size: 2vw;
+  display: inline-flex;
+  text-indent: 5px;
+  margin-right: 10px;
+}
+
+#octave {
+  font-size: 2vw;
+  margin: 5px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+#maxRings {
+  font-size: 1.2vw;
+  background-color: red;
+  color: white;
+  border-radius: 10px;
+  display: none;
+  width: fit-content;
+  padding: 5px;
+  z-index: 2;
+  position: absolute;
+}
+
+#tempoInput {
+  margin-top: 10px;
+  margin-left: 5%;
+  width: 90%;
+  background-color: gold;
+}
