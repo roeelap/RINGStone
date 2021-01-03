@@ -61,7 +61,7 @@ h3 {
 #removeAll,
 #instructionsBtn,
 #closeInstructions {
-  font-size: 5vw;
+  font-size: 4vw;
   background: black;
   border: none;
   outline-width: 0;
@@ -83,7 +83,7 @@ h3 {
 }
 
 #removeAll {
-  font-size: 2.5vw;
+  font-size: 2vw;
 }
 
 #removeAll:hover {
