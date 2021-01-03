@@ -234,7 +234,8 @@ function playTune() {
 
 function removeAll() {
   rings = [];
-  $("#main").empty();
+  let maxRingsPopup = $("#maxRings");
+  $("#main").empty().append(maxRingsPopup);
 }
 
 
