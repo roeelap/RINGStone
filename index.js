@@ -30,12 +30,12 @@ class Ring {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.color = this.colors[Math.floor(y / $("#main").height() * this.colors.length)];
-    this.attack = Math.floor(this.x / $("#main").width() * 16); // 16 beats per recursion
-    this.draw(this.x, this.y);
+    this.color = this.colors[Math.floor((this.y - $("#main").position().top) / $("#main").height() * this.colors.length)];
+    this.attack = Math.floor((this.x - $("#main").position().left) / $("#main").width() * 16); // 16 beats per recursion
+    this.draw();
   }
 
-  draw(x, y) {
+  draw() {
     // creating a new ring
     this.div = document.createElement("div");
 
@@ -53,8 +53,8 @@ class Ring {
         "height": 0 + 'px',
         "border-radius": 0 + 'px',
         "border": 0 + 'px solid ' + this.color,
-        "left": x + 'px',
-        "top": y + 'px'
+        "left": this.x + 'px',
+        "top": this.y + 'px'
     });
 
     $("#main").append(this.div);
@@ -64,21 +64,22 @@ class Ring {
 
     // making sure the ring doesn't cross the borders of the screen
     const maxRingSize = 70; // in px
-    let xPos = (x - maxRingSize / 2);
-    let yPos = (y - maxRingSize / 2);
-    if (xPos < 2) {
-      this.x = 2;
-    } else if (xPos + maxRingSize > $("#main").width()) {
-      this.x = $("#main").width() - maxRingSize;
+    const mainDivPosition = $("#main").position();
+
+    if (this.x - maxRingSize / 2 < mainDivPosition.left) {
+      this.x = mainDivPosition.left + 1;
+    } else if (this.x + maxRingSize / 2 > $(window).width()) {
+      this.x = $(window).width() - maxRingSize - 1;
     } else {
-      this.x = (x - maxRingSize / 2)
+      this.x = (this.x - maxRingSize / 2)
     };
-    if (yPos < 2) {
-      this.y = 2;
-    } else if (yPos + maxRingSize > $("#main").height()) {
-      this.y = $("#main").height() - maxRingSize;
+
+    if (this.y - maxRingSize / 2 < mainDivPosition.top) {
+      this.y = mainDivPosition.top + 1;
+    } else if (this.y + maxRingSize / 2 > $(window).height()) {
+      this.y = $(window).height() - maxRingSize - 1;
     } else {
-      this.y = (y - maxRingSize / 2);
+      this.y = (this.y - maxRingSize / 2);
     }
 
 
@@ -124,7 +125,7 @@ $("#main").click(function() {
   } else {
     $("#maxRings").css({
       "display": "flex"
-    })
+    });
     setTimeout(function() { $("#maxRings").fadeOut(1000); }, 3000);
   }
 });

@@ -8,6 +8,15 @@
 </head>
 <body>
     <div id="app">
+        <div id="title">
+            <h1><span style=color:red>R</span><span style=color:orange>I</span><span style=color:yellow>N</span><span style=color:green>G</span><span style=color:blue>S</span>tone</h1>
+        </div>
+
+        <input type="button" value="Play" class="mainButton" id="playButton" onclick="playTune()">
+        <input type="button" value="Stop" class="mainButton" id="stopButton">
+        <input type="button" value="Remove all" class="mainButton" id="removeAll" onclick="removeAll()">
+        <input type="button" value="Instructions" class="mainButton" id="instructionsBtn" onclick="showInstructions()">
+        
         <div id="main" oncontextmenu="return false;">
             <div id="maxRings">
                 <h3>You have reached the maximum number of rings!</h3>
@@ -15,12 +24,6 @@
         </div>
 
         <div id="manager">
-            <h1 id="title"><span style=color:red>R</span><span style=color:orange>I</span><span style=color:yellow>N</span><span style=color:green>G</span><span style=color:blue>S</span>tone</h1>
-            <hr>
-            <input type="button" value="Play" id="playButton" onclick="playTune()">
-            <input type="button" value="Stop" id="stopButton">
-            <input type="button" value="Remove all" id="removeAll" onclick="removeAll()">
-            <input type="button" value="Instructions" id="instructionsBtn" onclick="showInstructions()">
             <div>
                 <h3 class="managerTitle">Scale:</h3>
                 <select id="scaleInput">
@@ -53,19 +56,19 @@
                 to place rings , every ring will resemble a note in the pentatonic scale based on
                 it's <span style=color:red>C</span><span style=color:orange>O</span><span style=color:yellow>L</span><span style=color:green>O</span><span style=color:blue>R</span> (the higher the ring is on the screen, the higher the note).</p>
             <br>
-            <p>Clicking on the <span style=color:green>Play</span> button, will start the sequencer, which will play notes
+            <p>Clicking on the Play button, will start the sequencer, which will play notes
                 according to the rings you placed (from left to right).
             </p>
             <br>
             <p>You can remove rings from the screen by right clicking them or by clicking the
-                <span style=color:orange>Remove all</span> button.</p>
+                Remove all button.</p>
             <br>
             <p>In addition, you can manipulate the sequencer by changing the pentatonic scale,
                 the octave, or the tempo!</p>
             <br>
             <p>Have fun playing with <span style=color:red>R</span><span style=color:orange>I</span><span style=color:yellow>N</span><span style=color:green>G</span><span style=color:blue>S</span>tone!</p>
             <br>
-            <input type="button" value="Close Instructions" id="closeInstructions" onclick="closeInstructions()">
+            <input type="button" value="Close Instructions" class="mainButton" id="closeInstructions" onclick="closeInstructions()">
         </div>
     </div>
 
