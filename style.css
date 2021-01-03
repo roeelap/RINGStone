@@ -39,7 +39,7 @@ h3 {
 #app {
   display: grid;
   grid-template-columns: 25vw 25vw 25vw 25vw;
-  grid-template-rows: 15vh 85vh;
+  grid-template-rows: 13vh 87vh;
   overflow: hidden;
   background: black;
 }
@@ -48,7 +48,7 @@ h3 {
   grid-row: 1;
   grid-column: 1;
   background-color: black;
-  border: 1px solid white;
+  border-right: 1px solid white;
   text-align: center;
   font-size: 2vw;
 }
@@ -107,7 +107,7 @@ h3 {
   grid-row: 2 / span 1;
   grid-column: 2 / span 3;
   background: black;
-  border: 1px solid white;
+  border-top: 1px solid white;
 }
 
 #manager {
@@ -115,7 +115,8 @@ h3 {
   height: 100%;
   grid-row: 2 / span 1;
   grid-column: 1 / span 1;
-  border: 1px solid white;
+  border-right: 1px solid white;
+  border-top: 1px solid white;
   background: black;
   text-indent: 10px;
   align-items: center;
