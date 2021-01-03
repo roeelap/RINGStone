@@ -7,36 +7,65 @@
     <title>Musical Website</title>
 </head>
 <body>
-    <div id="main" oncontextmenu="return false;">
-        <div id="maxRings">
-            <h3>You have reached the maximum number of rings!</h3>
+    <div id="app">
+        <div id="main" oncontextmenu="return false;">
+            <div id="maxRings">
+                <h3>You have reached the maximum number of rings!</h3>
+            </div>
+        </div>
+
+        <div id="manager">
+            <h1 id="title"><span style=color:red>R</span><span style=color:orange>I</span><span style=color:yellow>N</span><span style=color:green>G</span><span style=color:blue>S</span>tone</h1>
+            <hr>
+            <input type="button" value="Play" id="playButton" onclick="playTune()">
+            <input type="button" value="Stop" id="stopButton">
+            <input type="button" value="Remove all" id="removeAll" onclick="removeAll()">
+            <input type="button" value="Instructions" id="instructionsBtn" onclick="showInstructions()">
+            <div>
+                <h3 class="managerTitle">Scale:</h3>
+                <select id="scaleInput">
+                    <option value="Major pentatonic">Major pentatonic</option>
+                    <option value="Minor pentatonic">Minor pentatonic</option>
+                    <option value="Minor blues">Minor blues</option>
+                    <option value="Major blues">Major blues</option>
+                    <option value="Suspended">Suspended</option>
+                </select>
+            </div>
+            <div style="display: flex;">
+                <h3 class="managerTitle">Octave:</h3>
+                <input type="number" min="1" max="7" value="4" id="octave">
+            </div>
+            <h3 id="scaleNotes"></h3>
+            <div>
+                <h3 id="tempoText" class="managerTitle">Tempo:</h3>
+                <input type="range" min="50" max="270" step="10" value="160" id="tempoInput">
+            </div>
         </div>
     </div>
-
-    <div id="manager">
-        <h1 id="title"><span style=color:red>R</span><span style=color:orange>I</span><span style=color:yellow>N</span><span style=color:green>G</span><span style=color:blue>S</span>tone</h1>
-        <hr>
-        <input type="button" value="Play" id="playButton" onclick="playTune()">
-        <input type="button" value="Stop" id="stopButton">
-        <input type="button" value="Remove all" id="removeAll" onclick="removeAll()">
-        <div>
-            <h3 class="managerTitle">Scale:</h3>
-            <select id="scaleInput">
-                <option value="Major pentatonic">Major pentatonic</option>
-                <option value="Minor pentatonic">Minor pentatonic</option>
-                <option value="Minor blues">Minor blues</option>
-                <option value="Major blues">Major blues</option>
-                <option value="Suspended">Suspended</option>
-            </select>
-        </div>
-        <div style="display: flex;">
-            <h3 class="managerTitle">Octave:</h3>
-            <input type="number" min="1" max="7" value="4" id="octave">
-        </div>
-        <h3 id="scaleNotes"></h3>
-        <div>
-            <h3 id="tempoText" class="managerTitle">Tempo:</h3>
-            <input type="range" min="50" max="270" step="10" value="160" id="tempoInput">
+    
+    <div id="instructionsPopup">
+        <div id="instructions">
+            <h1>Welcome to <span style=color:red>R</span><span style=color:orange>I</span><span style=color:yellow>N</span><span style=color:green>G</span><span style=color:blue>S</span>tone!</h1>
+            <br>
+            <p>This is a musical website based on the pentatonic scale, which is a musical scale that has five notes.</p>
+            <br>
+            <p>With the left button of your mouse, click around the left side of the screen
+                to place rings , every ring will resemble a note in the pentatonic scale based on
+                it's <span style=color:red>C</span><span style=color:orange>O</span><span style=color:yellow>L</span><span style=color:green>O</span><span style=color:blue>R</span> (the higher the ring is on the screen, the higher the note).</p>
+            <br>
+            <p>Clicking on the <span style=color:green>Play</span> button, will start the sequencer, which will play notes
+                according to the rings you placed (from left to right).
+            </p>
+            <br>
+            <p>You can remove rings from the screen by right clicking them or by clicking the
+                <span style=color:orange>Remove all</span> button.</p>
+            <br>
+            <p>In addition, you can manipulate the sequencer by changing the pentatonic scale,
+                the octave, or the tempo!</p>
+            <br>
+            <p>Have fun playing with <span style=color:red>R</span><span style=color:orange>I</span><span style=color:yellow>N</span><span style=color:green>G</span><span style=color:blue>S</span>tone!</p>
+            <br>
+            <input type="button" value="Close Instructions" id="closeInstructions" onclick="closeInstructions()">
         </div>
     </div>
 

@@ -62,15 +62,34 @@ class Ring {
     // playing the ring's note
     this.playNote();
 
-    // making the ring expand
+    // making sure the ring doesn't cross the borders of the screen
     const maxRingSize = 70; // in px
+    let xPos = (x - maxRingSize / 2);
+    let yPos = (y - maxRingSize / 2);
+    if (xPos < 2) {
+      this.x = 2;
+    } else if (xPos + maxRingSize > $("#main").width()) {
+      this.x = $("#main").width() - maxRingSize;
+    } else {
+      this.x = (x - maxRingSize / 2)
+    };
+    if (yPos < 2) {
+      this.y = 2;
+    } else if (yPos + maxRingSize > $("#main").height()) {
+      this.y = $("#main").height() - maxRingSize;
+    } else {
+      this.y = (y - maxRingSize / 2);
+    }
+
+
+    // making the ring expand
     $(this.div).animate({
         width: maxRingSize + "px",
         height: maxRingSize + "px",
         borderRadius: maxRingSize + "px",
         borderWidth: 15 + "px",
-        left: ((x - maxRingSize / 2) / $(window).width() * 100) + "%",
-        top: ((y - maxRingSize / 2) / $(window).height() * 100) + "%"
+        left: this.x / $(window).width() * 100 + "%",
+        top: this.y / $(window).height() * 100 + "%"
     }, 500);
   }
 
@@ -93,7 +112,6 @@ class Ring {
   delete() {
     this.div.remove();
     rings = rings.filter(ring => { return ring.x != this.x && ring.y != this.y; });
-    console.log(rings);
   }
 }
 
@@ -216,4 +234,17 @@ function playTune() {
 function removeAll() {
   rings = [];
   $("#main").empty();
+}
+
+
+function showInstructions() {
+  $("#instructionsPopup").css({
+    "display": "flex"
+  })
+}
+
+function closeInstructions() {
+  $("#instructionsPopup").css({
+    "display": "none"
+  })
 }
