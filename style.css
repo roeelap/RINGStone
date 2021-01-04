@@ -189,7 +189,7 @@ h3 {
 
 #instructionsPopup {
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
@@ -207,7 +207,7 @@ h3 {
   border-radius: 20px;
   text-align: center;
   padding: 1%;
-  overflow: hidden;
+  scroll-behavior: auto;
 }
 
 #instructions h1 {
@@ -230,4 +230,25 @@ h3 {
 
 #closeInstructions:hover {
   color: blue;
+}
+
+@media screen and (max-height: 450px) {
+  #instructions {
+    width: 100%;
+    border-radius: none;
+  }
+
+  #instructions h1{
+    margin-top: 50px;
+    font-size: 2vw;
+  }
+
+  #instructions p {
+    margin-top: 0px;
+  }
+  
+  #closeInstructions {
+    font-size: 1vw;
+    margin-bottom: 50px;
+  }
 }
