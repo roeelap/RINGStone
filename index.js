@@ -20,9 +20,15 @@ $("#tempoInput").change(function(){
 });
 
 // creating a new synth
-let vibrato = new Tone.Vibrato().toDestination();
-let synth = new Tone.PolySynth(Tone.FMSynth).connect(vibrato);
+function getSynth() {
+  let vibrato = new Tone.Vibrato().toDestination();
+  let synth = new Tone.PolySynth(Tone.FMSynth).connect(vibrato);
+  return synth
+}
 
+$("#closeInstructions").click(() => {
+  synth = getSynth();
+});
 
 class Ring {
   colors = ["red", "orange", "yellow", "green", "blue"];

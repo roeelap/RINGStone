@@ -26,11 +26,12 @@ h3 {
   border: none;
   outline-width: 0;
   color: white;
-  margin: 10px;
+  margin: 5px;
   cursor: pointer;
   border-radius: 50px;
   border: 2px solid white;
-  padding: 0.5vw;
+  padding: 0.5vh;
+  min-height: fit-content;
 }
 
 .ring {
@@ -186,7 +187,7 @@ h3 {
 }
 
 #instructionsPopup {
-  display: none;
+  display: flex;
   position: absolute;
   top: 0;
   width: 100%;
