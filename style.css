@@ -126,6 +126,7 @@ h3 {
   background: black;
   z-index: 2;
   padding: 1vw;
+  overflow: auto;
 }
 
 #manager div {

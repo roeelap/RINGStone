@@ -260,7 +260,7 @@ function closeInstructions() {
 }
 
 
-function loadPreMadeTunes() {
+function loadPreMadeRingtones() {
   // pre-made tune by me
   function sixteenthNote(attack) {
     return $("#main").position().left + attack / 16 * $("#main").width();
@@ -270,8 +270,8 @@ function loadPreMadeTunes() {
   return $("#main").position().top + pitch / 5 * $("#main").height();
   }
 
-  const preMadeTunes = {tune1: [[0, 0], [1, 1], [2, 2], [2, 3], [3, 0], [4, 1], [5, 2], [5, 4],[6, 0], [7, 1], [8, 2], [8, 3], [9, 0], [10, 1], [11, 2], [11, 4]],
-                        tune2: [[0, 3], [0, 2], [3, 4], [6, 3], [10, 4], [12, 3], [13, 2], [14, 0], [0, 0], [2, 1], [4, 2], [10, 0], [12, 1]]
+  const preMadeRingtones = {ringtone1: [[0, 0], [1, 1], [2, 2], [2, 3], [3, 0], [4, 1], [5, 2], [5, 4],[6, 0], [7, 1], [8, 2], [8, 3], [9, 0], [10, 1], [11, 2], [11, 4]],
+                            ringtone2: [[0, 3], [0, 2], [3, 4], [6, 3], [10, 4], [12, 3], [13, 2], [14, 0], [0, 0], [2, 1], [4, 2], [10, 0], [12, 1]]
   };
 
   // clean slate
@@ -279,7 +279,7 @@ function loadPreMadeTunes() {
 
   let choice = $("#preMadeSelect").val();
   
-  rings = preMadeTunes[choice].map(note => {
+  rings = preMadeRingtones[choice].map(note => {
     return new Ring(sixteenthNote(note[0]), noteColor(note[1]), false);
   });
 }
