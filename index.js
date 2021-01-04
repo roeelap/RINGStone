@@ -70,16 +70,16 @@ class Ring {
 
     if (this.x - maxRingSize / 2 < mainDivPosition.left) {
       this.x = mainDivPosition.left + 1;
-    } else if (this.x + maxRingSize / 2 > $(window).width()) {
-      this.x = $(window).width() - maxRingSize - 1;
+    } else if (this.x + maxRingSize / 2 > mainDivPosition.left + $("#main").width()) {
+      this.x = mainDivPosition.left + $("#main").width() - maxRingSize - 1;
     } else {
       this.x = (this.x - maxRingSize / 2)
     };
 
     if (this.y - maxRingSize / 2 < mainDivPosition.top) {
       this.y = mainDivPosition.top + 1;
-    } else if (this.y + maxRingSize / 2 > $(window).height()) {
-      this.y = $(window).height() - maxRingSize - 1;
+    } else if (this.y + maxRingSize / 2 > mainDivPosition.top + $("#main").height()) {
+      this.y = mainDivPosition.top + $("#main").height() - maxRingSize - 1;
     } else {
       this.y = (this.y - maxRingSize / 2);
     }
