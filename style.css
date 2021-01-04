@@ -46,7 +46,7 @@ h3 {
 #app {
   display: grid;
   grid-template-columns: 25vw 25vw 25vw 25vw;
-  grid-template-rows: minMax(min-content, 13vh) 87vh;
+  grid-template-rows: 13vh 87vh;
   overflow: hidden;
   background: black;
 }
