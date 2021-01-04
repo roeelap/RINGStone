@@ -5,7 +5,7 @@
   box-sizing: border-box;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
+  -khtml-user-select: none; /* Conqueror HTML */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
@@ -46,7 +46,7 @@ h3 {
 #app {
   display: grid;
   grid-template-columns: 25vw 25vw 25vw 25vw;
-  grid-template-rows: 13vh 87vh;
+  grid-template-rows: minMax(min-content, 13vh) 87vh;
   overflow: hidden;
   background: black;
 }
@@ -118,32 +118,32 @@ h3 {
 }
 
 #manager {
-  display: inline-grid;
-  height: 100%;
   grid-row: 2 / span 1;
   grid-column: 1 / span 1;
   border-right: 1px solid white;
   border-top: 1px solid white;
   background: black;
-  text-indent: 10px;
-  align-items: center;
-  justify-content: center;
   z-index: 2;
+  padding: 1vw;
 }
 
-#scaleInput {
+#manager div {
+  margin: 2vh;
+}
+
+#scaleInput,
+#preMadeSelect {
   font-size: 2vw;
   padding: 3px;
-  width: fit-content;
+  width: 100%;
   height: fit-content;
   border-radius: 15px;
   outline-width: 0px;
 }
 
 #scaleNotes {
-  font-size: 2vw;
-  display: inline-flex;
-  text-indent: 5px;
+  font-size: 1.5vw;
+  margin: 2vw;
 }
 
 #octave {
@@ -151,6 +151,18 @@ h3 {
   margin: 5px;
   border-radius: 15px;
   text-align: center;
+}
+
+#preMadeLoad {
+  font-size: 2vw;
+  width: 100%;
+  margin: 0;
+  margin-top: 10px;
+}
+
+#preMadeLoad:hover {
+  color: brown;
+  border-color: brown;
 }
 
 #maxRings {

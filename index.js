@@ -27,15 +27,15 @@ let synth = new Tone.PolySynth(Tone.FMSynth).connect(vibrato);
 class Ring {
   colors = ["red", "orange", "yellow", "green", "blue"];
 
-  constructor(x, y) {
+  constructor(x, y, toPlayOrNot) {
     this.x = x;
     this.y = y;
     this.color = this.colors[Math.floor((this.y - $("#main").position().top) / $("#main").height() * this.colors.length)];
     this.attack = Math.floor((this.x - $("#main").position().left) / $("#main").width() * 16); // 16 beats per recursion
-    this.draw();
+    this.draw(toPlayOrNot);
   }
 
-  draw() {
+  draw(toPlayOrNot) {
     // creating a new ring
     this.div = document.createElement("div");
 
@@ -60,7 +60,9 @@ class Ring {
     $("#main").append(this.div);
 
     // playing the ring's note
-    this.playNote();
+    if (toPlayOrNot) {
+      this.playNote();
+    }
 
     // making sure the ring doesn't cross the borders of the screen
     const maxRingSize = 70; // in px
@@ -121,7 +123,7 @@ class Ring {
 $("#main").click(function() {
   if (rings.length < 30) { 
     let mousePos = findMouseCoords();
-    rings.push(new Ring(mousePos[0], mousePos[1]));
+    rings.push(new Ring(mousePos[0], mousePos[1], true));
   } else {
     $("#maxRings").css({
       "display": "flex"
@@ -249,4 +251,29 @@ function closeInstructions() {
   $("#instructionsPopup").css({
     "display": "none"
   })
+}
+
+
+function loadPreMadeTunes() {
+  // pre-made tune by me
+  function sixteenthNote(attack) {
+    return $("#main").position().left + attack / 16 * $("#main").width();
+  }
+
+  function noteColor(pitch) {
+  return $("#main").position().top + pitch / 5 * $("#main").height();
+  }
+
+  const preMadeTunes = {tune1: [[0, 0], [1, 1], [2, 2], [2, 3], [3, 0], [4, 1], [5, 2], [5, 4],[6, 0], [7, 1], [8, 2], [8, 3], [9, 0], [10, 1], [11, 2], [11, 4]],
+                        tune2: [[0, 3], [0, 2], [3, 4], [6, 3], [10, 4], [12, 3], [13, 2], [14, 0], [0, 0], [2, 1], [4, 2], [10, 0], [12, 1]]
+  };
+
+  // clean slate
+  removeAll();
+
+  let choice = $("#preMadeSelect").val();
+  
+  rings = preMadeTunes[choice].map(note => {
+    return new Ring(sixteenthNote(note[0]), noteColor(note[1]), false);
+  });
 }
