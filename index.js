@@ -10,6 +10,16 @@ $("#octave").change(function(){
   notes = getScale();
 });
 
+// keeping the tempo in range
+$("#octave").change(function() {
+  if (this.value > 7) {
+    this.value = 7;
+  } else if (this.value < 1) {
+    this.value = 1;
+  }
+  notes = getScale();
+});
+
 // updating the tempo if the user changes it
 let tempo = $("#tempoInput").val();
 $("#tempoText").html(`Tempo: ${tempo}bpm`);
